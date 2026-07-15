@@ -1,63 +1,41 @@
-# Landing page — Visiones de lo Sagrado
+# Visiones de lo Sagrado — landing page actualizada
 
-Sitio estático, responsivo y listo para publicar en GitHub Pages. No requiere servidor, base de datos ni instalación de dependencias.
+Landing estática preparada para GitHub Pages, con captura de leads en Google Sheets y continuación automática por WhatsApp.
 
-## Publicación recomendada en GitHub Pages
+## Cambios incluidos
 
-Para conservar la página anterior, crea un repositorio nuevo llamado exactamente:
+- Se corrigió en toda la página el nombre **María Pérez Lizarazo**.
+- Se actualizó el Curso I para iniciar el **13 de agosto de 2026**.
+- La sesión final del Curso I, el **10 de septiembre**, aparece como clase de dos horas: **8:00 p.m. a 10:00 p.m.**
+- Se añadió sede y horario presencial: **Exarcado Maronita Santa Rafqa de Colombia, carrera 50A #118-18, Bogotá D.C.**
+- Se reforzó la sección de inversión: ahorro de **$200.000 COP**, equivalente al **16,7%**.
+- Se añadió una sección académica encabezada por **Abouna Estéfano Mantilla Janer**, sacerdote católico maronita y teólogo.
+- Se incorporaron los logos originales de Luz del Desierto y del Exarcado en la parte superior e inferior, sin editar sus archivos.
+- El formulario ahora puede guardar cada lead en una tabla privada de Google Sheets antes de abrir WhatsApp.
 
-`visiones-de-lo-sagrado`
+## Estructura
 
-Así la dirección final será:
-
-`https://exarcadomaronitacolombia.github.io/visiones-de-lo-sagrado/`
-
-### Método sencillo: desde el navegador
-
-1. Descomprime el archivo ZIP.
-2. Entra a la organización `exarcadomaronitacolombia` en GitHub.
-3. Crea un repositorio público nuevo llamado `visiones-de-lo-sagrado`.
-4. En el repositorio, pulsa **Add file → Upload files**.
-5. Sube **el contenido interno** de esta carpeta: `index.html`, `styles.css`, `script.js`, `.nojekyll`, `README.md` y la carpeta `assets`.
-6. Escribe un mensaje como `Publicar landing Visiones de lo Sagrado` y pulsa **Commit changes**.
-7. Ve a **Settings → Pages**.
-8. En **Build and deployment**, selecciona **Deploy from a branch**.
-9. Elige la rama **main**, carpeta **/(root)** y guarda.
-10. Espera uno o dos minutos y abre la URL indicada arriba.
-
-### Método por terminal
-
-```bash
-git init
-git add .
-git commit -m "Publicar landing Visiones de lo Sagrado"
-git branch -M main
-git remote add origin https://github.com/exarcadomaronitacolombia/visiones-de-lo-sagrado.git
-git push -u origin main
+```text
+visiones-de-lo-sagrado-actualizado/
+├── index.html
+├── styles.css
+├── script.js
+├── .nojekyll
+├── robots.txt
+├── sitemap.xml
+├── assets/
+│   ├── logo-luz-del-desierto-original.jpeg
+│   ├── logo-exarcado-original.png
+│   ├── abouna-estefano-mantilla-janer.jpg
+│   └── ...
+└── google-apps-script/
+    └── Codigo.gs
 ```
 
-Luego activa **Settings → Pages → Deploy from a branch → main / root**.
+## Configuración obligatoria del registro de leads
 
-## Cómo actualizar información
+Lee el archivo `CONFIGURAR-REGISTRO-DE-LEADS.md`. El formulario no debe publicarse sin reemplazar la URL de ejemplo en `script.js` por la URL `/exec` de Google Apps Script.
 
-- **Textos, fechas y precios:** edita `index.html`.
-- **Colores, tamaños y diseño:** edita `styles.css`.
-- **Números de WhatsApp y mensaje automático:** edita `index.html` y `script.js`.
-- **Imágenes:** reemplaza los archivos dentro de `assets` conservando el mismo nombre.
-- **URL definitiva:** si cambias el nombre del repositorio, actualiza las etiquetas `canonical`, `og:url` y `og:image` al comienzo de `index.html`.
+## Publicación
 
-## Datos que conviene confirmar antes de difundir
-
-La pieza recibida no especifica:
-
-- Sede o dirección.
-- Horario de cada sesión.
-- Docente o docentes.
-- Medio y plazo de pago.
-- Requisitos técnicos de la modalidad PAT.
-
-La landing los remite por ahora a WhatsApp para evitar publicar información no confirmada.
-
-## Formulario
-
-El formulario no envía ni almacena datos en un servidor. Al pulsar **Continuar por WhatsApp**, abre una conversación con Laura o María y prepara el mensaje de inscripción.
+Lee el archivo `SUBIR-A-GITHUB.md` para reemplazar la versión actual en el repositorio de GitHub Pages.
