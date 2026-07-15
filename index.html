@@ -18,7 +18,24 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preload" href="assets/portada-visiones.webp" as="image" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260715-curso1-mobile-2">
+
+  <!-- Estilos críticos de la franja institucional. Se mantienen aquí para evitar que una versión antigua de la hoja de estilos en caché agrande los logos. -->
+  <style>
+    .institutional-bar{background:#fff;border-bottom:1px solid rgba(85,56,135,.08);position:relative;z-index:55}
+    .institutional-bar-inner{min-height:108px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:1.5rem;padding-block:.7rem}
+    .institutional-logos{display:flex;align-items:center;gap:1rem;min-width:0;overflow:hidden}
+    .institution-logo{display:block;max-width:none;object-fit:contain;object-position:center;flex:0 0 auto}
+    .institution-logo-exarcado{width:68px;height:80px}
+    .institution-logo-luz{width:150px;height:80px;object-fit:cover;object-position:center 50%;border-radius:10px}
+    .institution-divider{width:1px;height:50px;background:rgba(85,56,135,.16);flex:0 0 auto}
+    .location-pill{display:flex;align-items:center;gap:.7rem;max-width:230px;padding:.68rem .92rem;border:1px solid rgba(85,56,135,.17);border-radius:16px;text-decoration:none;color:#342052;background:#fffaf0;flex:0 0 auto}
+    .location-pill>span:first-child{color:#a66922;font-size:1.25rem}
+    .location-pill strong,.location-pill small{display:block}
+    .location-pill small{color:#706873;font-size:.76rem}
+    @media(max-width:700px){.institutional-bar-inner{min-height:auto;gap:.75rem;padding-block:.6rem}.institutional-logos{gap:.65rem}.institution-logo-exarcado{width:54px;height:64px}.institution-logo-luz{width:104px;height:64px}.institution-divider{height:40px}.location-pill{padding:.55rem .68rem}.location-pill small{display:none}}
+    @media(max-width:480px){.institutional-bar-inner{grid-template-columns:1fr;justify-items:center}.institutional-logos{justify-content:center}.location-pill{width:100%;max-width:100%;justify-content:center}}
+  </style>
 
   <script type="application/ld+json">
   {
@@ -102,9 +119,9 @@
   <div class="institutional-bar" aria-label="Instituciones organizadoras">
     <div class="container institutional-bar-inner">
       <div class="institutional-logos">
-        <img class="institution-logo institutional-logo-exarcado" src="assets/logo-exarcado-original.png" width="505" height="596" alt="Logo del Exarcado Maronita Santa Rafqa de Colombia">
+        <img class="institution-logo institutional-logo-exarcado" src="assets/logo-exarcado-original.png" width="68" height="80" alt="Logo del Exarcado Maronita Santa Rafqa de Colombia">
         <span class="institution-divider" aria-hidden="true"></span>
-        <img class="institution-logo institutional-logo-luz" src="assets/logo-luz-del-desierto-original.jpeg" width="1637" height="2048" alt="Logo de Luz del Desierto, Alimento para la fe">
+        <img class="institution-logo institutional-logo-luz" src="assets/logo-luz-del-desierto-original.jpeg" width="150" height="80" alt="Logo de Luz del Desierto, Alimento para la fe">
       </div>
       <a class="location-pill" href="https://www.google.com/maps/search/?api=1&query=Carrera+50A+%23118-18%2C+Bogot%C3%A1%2C+Colombia" target="_blank" rel="noopener">
         <span aria-hidden="true">⌖</span>
@@ -156,7 +173,7 @@
             <a class="button" href="#inscripcion">Quiero inscribirme</a>
             <a class="button button-ghost" href="#cursos">Conocer los cursos</a>
           </div>
-          <p class="microcopy">Presencial en Bogotá y PAT · Clases de 8:00 p.m. a 9:00 p.m.</p>
+          <p class="microcopy">Presencial en Bogotá y PAT · Horario general: 8:00 p.m. a 9:00 p.m. · Primera sesión del Curso I: 8:00 p.m. a 10:00 p.m.</p>
         </div>
 
         <div class="hero-visual reveal">
@@ -191,7 +208,7 @@
 
         <article class="course-card reveal" id="curso-1">
           <div class="course-image">
-            <img src="assets/curso-belleza-teologia.webp" width="1280" height="1600" loading="lazy" alt="Afiche del curso Belleza y Teología">
+            <img src="assets/curso-belleza-teologia-2026.jpg" width="1024" height="1280" loading="lazy" alt="Afiche actualizado del curso Belleza y Teología">
           </div>
           <div class="course-content">
             <div class="course-topline">
@@ -202,12 +219,12 @@
             <p class="course-subtitle">Arte, arquitectura y liturgia siriaca</p>
             <p>Una aproximación al lenguaje de la belleza en la experiencia cristiana oriental y en sus formas litúrgicas, artísticas y espaciales.</p>
             <div class="date-group" aria-label="Fechas del curso Belleza y Teología">
-              <span>13 ago · 8–9 p.m.</span>
+              <span class="date-highlight">13 ago · sesión doble 8–10 p.m.</span>
               <span>20 ago · 8–9 p.m.</span>
               <span>3 sep · 8–9 p.m.</span>
-              <span class="date-highlight">10 sep · sesión final 8–10 p.m.</span>
+              <span>10 sep · 8–9 p.m.</span>
             </div>
-            <p class="course-note"><strong>Sesión final especial:</strong> la clase del 10 de septiembre tendrá una duración de dos horas.</p>
+            <p class="course-note"><strong>Primera sesión especial:</strong> la clase del 13 de agosto será doble y tendrá una duración de dos horas, de 8:00 p.m. a 10:00 p.m.</p>
             <button class="text-link choose-course" type="button" data-course="Curso I — Belleza y Teología">Elegir este curso <span aria-hidden="true">→</span></button>
           </div>
         </article>
@@ -435,7 +452,7 @@
           </details>
           <details>
             <summary>¿Cuál será el horario?</summary>
-            <p>Las clases se realizarán en las fechas anunciadas de <strong>8:00 p.m. a 9:00 p.m.</strong> La sesión final del Curso I, el <strong>10 de septiembre</strong>, será una clase especial de dos horas, de <strong>8:00 p.m. a 10:00 p.m.</strong></p>
+            <p>Las clases se realizarán en las fechas anunciadas de <strong>8:00 p.m. a 9:00 p.m.</strong> La primera sesión del Curso I, el <strong>13 de agosto</strong>, será una clase doble de dos horas, de <strong>8:00 p.m. a 10:00 p.m.</strong> La sesión del <strong>10 de septiembre</strong> tendrá el horario habitual de <strong>8:00 p.m. a 9:00 p.m.</strong></p>
           </details>
           <details>
             <summary>¿Quiénes dictarán los cursos?</summary>

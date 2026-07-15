@@ -53,36 +53,63 @@ address { font-style: normal; }
 .section { padding: 7rem 0; }
 
 .institutional-bar {
+  position: relative;
+  z-index: 55;
   background: #fff;
   border-bottom: 1px solid rgba(85, 56, 135, .08);
 }
 .institutional-bar-inner {
-  min-height: 118px;
-  display: flex;
-  justify-content: space-between;
+  min-height: 108px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 2rem;
-  padding-block: .75rem;
+  gap: 1.5rem;
+  padding-block: .7rem;
 }
-.institutional-logos { display: flex; align-items: center; gap: 1.3rem; min-width: 0; }
-.institution-logo { object-fit: contain; object-position: center; flex: 0 0 auto; }
-.institution-logo-exarcado { width: 76px; height: 90px; }
-.institution-logo-luz { width: 140px; height: 90px; object-fit: cover; object-position: center 50%; }
-.institution-divider { width: 1px; height: 54px; background: rgba(85, 56, 135, .16); }
+.institutional-logos {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  overflow: hidden;
+}
+.institution-logo {
+  display: block;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+  flex: 0 0 auto;
+}
+.institution-logo-exarcado { width: 68px; height: 80px; }
+.institution-logo-luz {
+  width: 150px;
+  height: 80px;
+  object-fit: cover;
+  object-position: center 50%;
+  border-radius: 10px;
+}
+.institution-divider {
+  width: 1px;
+  height: 50px;
+  background: rgba(85, 56, 135, .16);
+  flex: 0 0 auto;
+}
 .location-pill {
   display: flex;
   align-items: center;
-  gap: .75rem;
-  padding: .7rem 1rem;
+  gap: .7rem;
+  max-width: 230px;
+  padding: .68rem .92rem;
   border: 1px solid var(--line);
   border-radius: 16px;
   text-decoration: none;
   color: var(--purple-dark);
   background: var(--cream-light);
+  flex: 0 0 auto;
 }
-.location-pill > span:first-child { color: var(--gold); font-size: 1.35rem; }
+.location-pill > span:first-child { color: var(--gold); font-size: 1.25rem; }
 .location-pill strong, .location-pill small { display: block; }
-.location-pill small { color: var(--muted); font-size: .78rem; }
+.location-pill small { color: var(--muted); font-size: .76rem; }
 
 .site-header {
   position: sticky;
@@ -377,10 +404,12 @@ details p strong { color: var(--purple-dark); }
 
 @media (max-width: 700px) {
   .section { padding: 5rem 0; }
-  .institutional-bar-inner { min-height: 96px; }
-  .institution-logo-exarcado { width: 62px; height: 72px; }
-  .institution-logo-luz { width: 112px; height: 70px; }
-  .location-pill { padding: .55rem .7rem; }
+  .institutional-bar-inner { min-height: auto; gap: .75rem; padding-block: .6rem; }
+  .institutional-logos { gap: .65rem; }
+  .institution-logo-exarcado { width: 54px; height: 64px; }
+  .institution-logo-luz { width: 104px; height: 64px; }
+  .institution-divider { height: 40px; }
+  .location-pill { padding: .55rem .68rem; }
   .location-pill small { display: none; }
   .site-header .button-small { display: none; }
   .nav-wrap { min-height: 66px; }
@@ -426,6 +455,12 @@ details p strong { color: var(--purple-dark); }
   }
 }
 
+@media (max-width: 480px) {
+  .institutional-bar-inner { grid-template-columns: 1fr; justify-items: center; }
+  .institutional-logos { justify-content: center; }
+  .location-pill { width: 100%; max-width: 100%; justify-content: center; }
+}
+
 @media (max-width: 430px) {
   .institutional-bar-inner { gap: .7rem; }
   .institutional-logos { gap: .6rem; }
@@ -439,5 +474,116 @@ details p strong { color: var(--purple-dark); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* Actualización móvil: microtransiciones táctiles y entradas más fluidas. */
+.location-pill,
+.course-card,
+.price-card,
+.contact-list a,
+.form-shell,
+.final-cta-box,
+.footer-logo-card,
+details,
+.mobile-cta {
+  transition:
+    transform .28s cubic-bezier(.2, .8, .2, 1),
+    box-shadow .28s ease,
+    border-color .28s ease,
+    background-color .28s ease,
+    opacity .28s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .location-pill:hover {
+    transform: translateY(-2px);
+    border-color: rgba(85, 56, 135, .3);
+    box-shadow: 0 12px 28px rgba(52, 32, 82, .1);
+  }
+
+  .course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 72px rgba(52, 32, 82, .13);
+  }
+
+  .price-card:not(.featured):hover,
+  .contact-list a:hover,
+  .footer-logo-card:hover {
+    transform: translateY(-3px);
+  }
+
+  details:hover {
+    border-color: rgba(85, 56, 135, .28);
+  }
+}
+
+@keyframes mobileCtaEnter {
+  from { opacity: 0; transform: translateY(18px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 700px) {
+  .reveal {
+    transform: translateY(14px) scale(.992);
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(.2, .8, .2, 1);
+  }
+
+  .reveal.visible {
+    transform: translateY(0) scale(1);
+  }
+
+  .course-card,
+  .price-card,
+  .form-shell,
+  .final-cta-box {
+    border-radius: 22px;
+  }
+
+  .course-image img {
+    transition-duration: .5s;
+  }
+
+  details[open] {
+    background: rgba(255, 255, 255, .45);
+    border-radius: 16px;
+    padding-inline: .8rem;
+  }
+
+  .mobile-cta {
+    animation: mobileCtaEnter .55s cubic-bezier(.2, .8, .2, 1) both;
+    transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .button:active,
+  .mobile-cta:active,
+  .location-pill:active,
+  .text-link:active {
+    transform: scale(.975);
+  }
+
+  .course-card:active,
+  .price-card:active,
+  .contact-list a:active,
+  .footer-logo-card:active {
+    transform: scale(.992);
+  }
+
+  summary {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .mobile-cta { animation: none; }
   .reveal { opacity: 1; transform: none; }
 }
